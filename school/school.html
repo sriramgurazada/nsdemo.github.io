@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National High School</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to National High School</h1>
+    <p>Kaikalur, Andhra Pradesh, India, 521333</p>
+</header>
+
+<nav>
+    <a href="#about">About Us</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="about">
+        <h2>About Our School</h2>
+        <p>National High School in Kaikalur, Andhra Pradesh, is committed to providing quality education to students from various backgrounds.
+            Our school focuses on holistic development, ensuring that every student achieves their full potential.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+
+            <div class="slides">
+                <img src="children.jpg" alt="School Children">
+            </div>
+
+            <div class="slides">
+                <img src="activities.jpg" alt="School Activities">
+            </div>
+
+            <div class="slides">
+                <img src="classroom.jpg" alt="Classroom">
+            </div>
+
+            <div class="slides">
+                <img src="playground.jpg" alt="Playground">
+            </div>
+
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Address: National High School, Kaikalur, Andhra Pradesh, India, 521333</p>
+        <p>Phone: +08677222381</p>
+        <a href="tel:+08677222381" class="call-button">Call Us Now</a>
+        <p>
+        <a href="https://wa.me/919440482377?text=Hello,%20I%20would%20like%20to%20get%20in%20touch!" target="_blank">Send us a message on WhatsApp</a>
+    </p>
+        <p>Email: nationalschool72@gmail.com</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 National High School, Kaikalur. All rights reserved.</p>
+</footer>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    
+</script>
+
+<form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="message" placeholder="Your Message" required>
+    <button type="submit">Send WhatsApp Message</button>
+  </form>
+  
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var name = document.getElementById('name').value;
+      var message = document.getElementById('message').value;
+      var whatsappUrl = 'https://wa.me/919440482377?text=' + encodeURIComponent('Name: ' + name + '\nMessage: ' + message);
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+  
+
+</body>
+</html>
