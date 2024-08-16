@@ -81,6 +81,32 @@
             bottom: 20px;
             background-color: #25D366;
         }
+        /* Popup container */
+        .popup {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        /* Popup content */
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .popup img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -142,6 +168,15 @@
     <p>&copy; 2024 National High School, Kaikalur. All rights reserved.</p>
 </footer>
 
+<!-- Popup for Admissions -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <img src="11.webp" alt="Admissions Open"  
+          width="400" 
+        height="500" >
+    </div>
+</div>
+
 <script>
     let slideIndex = 0;
     showSlides();
@@ -157,23 +192,19 @@
         slides[slideIndex-1].style.display = "block";  
         setTimeout(showSlides, 3000); // Change image every 3 seconds
     }
-</script>
 
-<form id="contactForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="message" placeholder="Your Message" required>
-    <button type="submit">Send WhatsApp Message</button>
-  </form>
-  
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      var name = document.getElementById('name').value;
-      var message = document.getElementById('message').value;
-      var whatsappUrl = 'https://wa.me/919440482377?text=' + encodeURIComponent('Name: ' + name + '\nMessage: ' + message);
-      window.open(whatsappUrl, '_blank');
+    // Close the popup when the user clicks outside of the content
+    document.getElementById('popup').addEventListener('click', function(event) {
+        if (event.target === this) {
+            this.style.display = 'none';
+        }
     });
-  </script>
+
+    // Automatically close the popup after 3 seconds
+    setTimeout(function() {
+        document.getElementById('popup').style.display = 'none';
+    }, 3000);
+</script>
 
 <!-- Call Now Floating Button -->
 <a href="tel:+08677222381" class="floating-button call-button">
